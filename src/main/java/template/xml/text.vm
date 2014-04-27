@@ -1,0 +1,7 @@
+<xml>
+<ToUserName><![CDATA[${TextXML.getToUserName()}]]></ToUserName>
+<FromUserName><![CDATA[${TextXML.getFromUserName()}]]></FromUserName>
+<CreateTime>${TextXML.getCreateTime()}</CreateTime>
+<MsgType><![CDATA[${TextXML.getMsgType()}]]></MsgType>
+<Content><![CDATA[${TextXML.getContent()}]]></Content>
+</xml>
