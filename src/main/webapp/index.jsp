@@ -7,7 +7,7 @@
 <title>你好</title>
 </head>
 <body>
-<p>hello world,haha001</p>
+<p>hello world!</p>
 <p>sinaapp</p>
 </body>
 </html>
