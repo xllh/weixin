@@ -1,0 +1,10 @@
+<xml>
+<ToUserName><![CDATA[${ImageXML.getToUserName()}]]></ToUserName>
+<FromUserName><![CDATA[${ImageXML.getFromUserName()}]]></FromUserName>
+<CreateTime>${ImageXML.getCreateTime()}</CreateTime>
+<MsgType><![CDATA[${ImageXML.getMsgType()}]]></MsgType>
+#set($image = ${ImageXML.getImage()})
+<Image>
+<MediaId><![CDATA[${image.getMediaId()}]]></MediaId>
+</Image>
+</xml>

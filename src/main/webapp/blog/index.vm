@@ -1,0 +1,19 @@
+<html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>博客列表</title>
+</head>
+<body>
+	#set($blogList = $BLOG.getAll())
+	<table>
+	#foreach($blog in $blogList)
+		<tr>
+			<td>${blog.title}</td>
+			<td>${blog.content}</td>
+		</tr>
+	#end
+	</table>
+</body>
+</html>
+</html>

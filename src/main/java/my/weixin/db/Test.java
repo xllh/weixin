@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import my.weixin.jfinal.bean.Blog;
+
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import com.sina.sae.util.SaeUserInfo;

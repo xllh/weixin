@@ -1,0 +1,27 @@
+{
+     "button":[
+     {	
+          "type":"view",
+          "name":"博客",
+          "url":"http://pages.adouteam.com/"
+      },
+      {
+           "type":"click",
+           "name":"帐号简介",
+           "key":"V1001_ID_INTRODUCE"
+      },
+      {
+           "name":"菜单",
+           "sub_button":[
+            {
+               "type":"view",
+               "name":"开源中国",
+               "url":"http://www.oschina.net/"
+            },
+            {
+               "type":"view",
+               "name":"淘宝小店",
+               "url":"http://bxlwy.taobao.com/"
+            }]
+       }
+ }
