@@ -1,0 +1,11 @@
+*{font-family:微软雅黑, Verdana, sans-serif, 宋体;font-size:12pt;padding:0;margin:0;}
+.clear{clear:both;}
+
+/* 头部 */
+#head ul li{float:left;list-style:none;margin-left:10px;}
+#head ul li a{text-decoration:none;}
+#head ul li.current a{background-color:red;}
+
+/* 底部 */
+#foot ul li{float:left;list-style:none;margin-left:10px;}
+

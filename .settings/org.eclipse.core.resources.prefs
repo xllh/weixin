@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
-encoding//src/main/webapp/WEB-INF/velocity/conf/velocity.properties=UTF-8
+encoding//src/main/webapp/_piece/foot.jsp=UTF-8
+encoding//src/main/webapp/_piece/head.jsp=UTF-8
