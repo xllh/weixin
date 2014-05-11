@@ -28,12 +28,12 @@ public class Test {
 			List<Blog> blogList = new ArrayList<Blog>();
 			while(rs.next()){
 				Blog blog = new Blog();
-				blog.setId(rs.getInt("id"));
-				blog.setTitle(rs.getString("title"));
-				blog.setContent(rs.getString("content"));
-				blog.setCtime(rs.getTimestamp("ctime"));
-				blog.setView(rs.getInt("view"));
-				blog.setCatalog(rs.getInt("catalog"));
+				blog.set("id", rs.getInt("id"));
+				blog.set("title", rs.getString("title"));
+				blog.set("content", rs.getString("content"));
+				blog.set("ctime", rs.getTimestamp("ctime"));
+				blog.set("view", rs.getInt("view"));
+				blog.set("catalog", rs.getInt("catalog"));
 				blogList.add(blog);
 			}
 			return blogList;
