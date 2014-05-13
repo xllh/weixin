@@ -7,15 +7,6 @@
 <title>管理后台-星星之火博客</title>
 <link rel="stylesheet" href="/admin/css/main.css" />
 <script type="text/javascript" src="/tool/jquery-1.11.1.min.js"></script>
-<script type="text/javascript">
-	function logout(){
-		if(window.confirm("确定注销登录么？")){
-			window.location.href = "/admin/logOut";
-		}else{
-			return false;
-		}
-	}
-</script>
 </head>
 <body>
 	<div id="head">

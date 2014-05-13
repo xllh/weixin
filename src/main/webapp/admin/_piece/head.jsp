@@ -6,6 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/admin/css/main.css" />
 <title>Insert title here</title>
+<script type="text/javascript">
+	function logout(){
+		if(window.confirm("确定注销登录么？")){
+			window.location.href = "/admin/logOut";
+		}else{
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
 		<%	String email = request.getSession().getAttribute("email").toString();

@@ -8,5 +8,5 @@
 #main #left{float:left;}
 #main #right{float:left;margin:20px 0 0 30px;}
 
-#foot{position:absolute;bottom:0px;width:100%;}
+#foot{position:fixed;bottom:0px;width:100%;}
 #foot #copyright{width:100%;height:30px;line-height:30px;background-color:#F4F4F4;text-align:center;}
