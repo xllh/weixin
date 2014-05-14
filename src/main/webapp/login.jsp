@@ -10,12 +10,46 @@
 <script type="text/javascript" src="/tool/sha1.js"></script>
 <style>
 	*{font-family:微软雅黑, Verdana, sans-serif, 宋体;font-size:12pt;padding:0;margin:0;}
-	#form{position:absolute;left:50%;top:50%;margin-left:-171px;margin-top:-96px;width:300px;border:1px solid #666;padding:10px 20px;}
+	#form{position:absolute;left:50%;top:50%;margin-left:-171px;margin-top:-136px;width:265px;border:1px solid #666;padding:10px 20px;}
 	#form table caption{text-align:left;padding:10px 0;font-size:14pt;}
-	#form input[type="submit"]{padding:2px 6px;margin-top:10px;float:right;}
+	#form input[type="submit"]{padding:4px 10px;width:100%;}
 	#tips{display:inline-block;line-height:26px;margin-top:10px;color:red;}
+	img#captcha{width:120px;height:35px;margin-left:66px;}
+	a#freshCaptcha{cursor:pointer;color:#FFC50E;text-align:right;margin-left:8px;}
+	a#freshCaptcha:hover{color:#FFA80E;}
+	table tr{height:30px;line-height:30px;}
 </style>
-<script type="text/javascript"> 
+</head>
+<body>
+<div id="form">
+	<form id="loginForm">
+		<table>
+			<caption>博客登录</caption>
+			<tr>
+				<td>邮&nbsp;&nbsp;&nbsp;&nbsp;箱：</td>
+				<td><input type="text" name="email" /></td>
+			</tr>
+			<tr>
+				<td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td>验证码：</td>
+				<td><input type="text" name="answer" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><img id="captcha" src="/action/imgCaptcha" /><a id="freshCaptcha" onclick="freshCaptcha()">换一张</a></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="登录" /><span id="tips"></span></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<script type="text/javascript">
+	function freshCaptcha(){
+		$("#captcha").attr("src", "/action/imgCaptcha");
+	}
     $(document).ready(function(){
     	var options = {
     		url: "/action/login",
@@ -50,37 +84,21 @@
     			var tips = $("#tips");
     			if(statusText == "success"){
     				if(responseText.status == "fail"){
-    					tips.html("登录失败！");
+    					tips.html("邮箱或密码错误！");
+    				}else if(responseText.status == "answer_wrong"){
+    					tips.html("验证码错误！");
     				}else{
     					window.location.href = responseText.status;
     				}
     			}else{
     				tips.html("网络出错！请重试！");
     			}
+    			//刷新验证码
+    			freshCaptcha();
     		}
     	};
         $('#loginForm').ajaxForm(options); 
-    }); 
+    });
 </script>
-</head>
-<body>
-<div id="form">
-	<form id="loginForm">
-		<table>
-			<caption>博客登录</caption>
-			<tr>
-				<td>邮箱：</td>
-				<td><input type="text" name="email" /></td>
-			</tr>
-			<tr>
-				<td>密码：</td>
-				<td><input type="password" name="password" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><span id="tips"></span><input type="submit" value="登录" /></td>
-			</tr>
-		</table>
-	</form>
-</div>
 </body>
 </html>
