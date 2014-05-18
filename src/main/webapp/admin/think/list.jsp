@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/css/main.css" />
-<title>随笔-星星之火博客</title>
+<title>随笔列表</title>
 </head>
 <body>
 	<div id="head">
-		<jsp:include page="/_piece/head.jsp">
-			<jsp:param name="catalog" value="uncatalog"/>
-		</jsp:include>
+		<jsp:include page="/admin/_piece/head.jsp" />
 	</div>
 	<div id="main">
 		<div id="left">
+			<jsp:include page="/admin/_piece/left.jsp" />
+		</div>
+		<div id="right">
 			<table>
 			<%
 			Page<Think> thinkPage = Think.ME.page(1, 10);
@@ -22,18 +22,16 @@
 			for(Think think:thinkList){
 			%>
 				<tr>
+					<td><%=think.get("id") %></td>
 					<td><%=think.get("think") %></td>
 					<td><%=think.get("time") %></td>
 				</tr>
 			<%} %>
 			</table>
 		</div>
-		<div id="right">
-			<jsp:include page="/_piece/right.jsp" />
-		</div>
 	</div>
 	<div id="foot">
-		<jsp:include page="/_piece/foot.jsp" />
+		<jsp:include page="/admin/_piece/foot.jsp" />
 	</div>
 </body>
 </html>

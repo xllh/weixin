@@ -20,6 +20,12 @@
             <a href="blog_list" class="item"><i class="list layout icon red"></i>博客列表</a>
             <a href="blog_add" class="item"><i class="add icon red"></i>写博客</a>
            <div class="header item">
+               <i class="text file outline icon large"></i>
+               随笔管理
+           </div>
+            <a href="think_list" class="item"><i class="list layout icon red"></i>随笔列表</a>
+            <a href="think_add" class="item"><i class="add icon red"></i>随笔</a>
+           <div class="header item">
                <i class="users icon large"></i>
                用户管理
            </div>

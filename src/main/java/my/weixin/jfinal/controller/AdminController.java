@@ -13,12 +13,14 @@ public class AdminController extends Controller {
 	public void index(){
 		render("/admin/index.jsp");
 	}
+	//用户
 	public void user_add(){
 		render("/admin/user/add.jsp");
 	}
 	public void user_list(){
 		render("/admin/user/list.jsp");
 	}
+	//博客
 	public void blog_add(){
 		render("/admin/blog/add.jsp");
 	}
@@ -27,6 +29,13 @@ public class AdminController extends Controller {
 	}
 	public void blog_count(){
 		render("/admin/blog/count.jsp");
+	}
+	//随笔
+	public void think_add(){
+		render("/admin/think/add.jsp");
+	}
+	public void think_list(){
+		render("/admin/think/list.jsp");
 	}
 	//注销登录
 	public void logOut(){

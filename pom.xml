@@ -97,6 +97,12 @@
     	<artifactId>jfinal</artifactId>
     	<version>1.8-SNAPSHOT</version>
     </dependency>
+    <dependency>
+	  <groupId>com.jfinal</groupId>
+	  <artifactId>jfinal</artifactId>
+	  <version>1.6</version>
+	  <classifier>sources</classifier>
+	</dependency>
 	<dependency>
 	  <groupId>com.ckeditor</groupId>
 	  <artifactId>ckeditor-java-core</artifactId>
