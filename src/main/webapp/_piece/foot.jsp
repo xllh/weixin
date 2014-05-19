@@ -7,6 +7,7 @@
 </head>
 <body>
 	<div id="friendlink">
+		<div class="title">友情链接:</div>
 		<ul>
 			<li><a href="http://www.oschina.net/" target="_blank">开源中国</a></li>
 			<li><a href="http://vbird.dic.ksu.edu.tw/" target="_blank">鸟哥的Linux私房菜</a></li>

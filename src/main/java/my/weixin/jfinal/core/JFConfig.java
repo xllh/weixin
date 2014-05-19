@@ -50,7 +50,7 @@ public class JFConfig extends JFinalConfig {
 //		String user = "root";
 //		String password = "root";
 //		C3p0Plugin c3p0 = new C3p0Plugin("jdbc:mysql://localhost:3306/app_xllh", user, password);
-		me.add(c3p0);
+//		me.add(c3p0);
 		
 		ActiveRecordPlugin arpMysql = new ActiveRecordPlugin("mysql", c3p0);
 		me.add(arpMysql);

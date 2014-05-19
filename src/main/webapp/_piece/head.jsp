@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%String catalog = request.getParameter("catalog"); %>
-	<div id="logo">星星博客</div>
+	<div id="logo"><h1>星星博客</h1></div>
 	<div id="nav">
 		<ul>
 			<li <%if(catalog.equalsIgnoreCase("index")){ %>class="current"<%} %>><a href="/">首页</a></li>

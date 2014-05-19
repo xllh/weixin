@@ -20,6 +20,7 @@
 		<div id="right">
 			<jsp:include page="/_piece/right.jsp" />
 		</div>
+		<div class="clear"></div>
 	</div>
 	<div id="foot">
 		<jsp:include page="/_piece/foot.jsp" />

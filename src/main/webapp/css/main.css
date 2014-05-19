@@ -1,11 +1,26 @@
-*{font-family:微软雅黑, Verdana, sans-serif, 宋体;font-size:12pt;padding:0;margin:0;}
+*{font-family:微软雅黑, Verdana, sans-serif, 宋体;font-size:12pt;padding:0;margin:0;color:#666;}
 .clear{clear:both;}
 
+#head,#main,#foot{width:998px;margin:0 auto;}
 /* 头部 */
-#head ul li{float:left;list-style:none;margin-left:10px;}
-#head ul li a{text-decoration:none;}
-#head ul li.current a{background-color:red;}
+#head #logo{height:60px;}
+#head #logo h1{font-size:20pt;line-height:60px;}
+#head #nav{background-color:#999;padding:5px 0;}
+#head ul li{float:left;list-style:none;}
+#head ul li a{text-decoration:none;border-right:1px solid #ccc;color:#fff;padding:5px;}
+#head ul li.current a{background-color:#333;}
+#head ul li a:hover{background-color:#333;}
+
+#main{padding:20px 10px;}
+
+#left{width:70%;float:left;}
+
+#right{width:30%;float:right;}
 
 /* 底部 */
-#foot ul li{float:left;list-style:none;margin-left:10px;}
+#foot #friendlink{border:1px solid #ccc;padding:10px;}
+#foot #friendlink .title{font-size:12px;line-height:20px;}
+#foot #friendlink ul li{float:left;list-style:none;margin-left:10px;}
+#foot #friendlink ul li a{font-size:14px;}
+#foot #copyright{text-align:center;padding:20px 0;}
 
