@@ -16,7 +16,7 @@
 			<jsp:include page="/admin/_piece/left.jsp" />
 		</div>
 		<div id="right">
-			<div class="tip"><%=session.getAttribute("tip") %></div>
+			<div class="tip"><%if(session.getAttribute("tip")!=null){%><%=session.getAttribute("tip") %><%} %></div>
 			<form action="action/blog_add" method="post">
 				<table>
 					<tr>

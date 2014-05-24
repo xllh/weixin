@@ -13,9 +13,15 @@
 
 #main{padding:20px 10px;}
 
-#left{width:70%;float:left;}
+#left{width:78%;float:left;padding-right:2%;}
+#left ul li{list-style:none;border-bottom:1px solid #000;margin-top:10px;}
+#left .blog_head{border-bottom:1px solid #ccc;padding:5px 0;}
+#left .blog_title{font-size:18px;font-weight:bold;padding:5px 0;}
+#left .blog_toolbar span{font-size:14px;margin-right:10px;}
 
-#right{width:30%;float:right;}
+#left ul li .time{float:right;}
+
+#right{width:20%;float:right;}
 
 /* 底部 */
 #foot #friendlink{border:1px solid #ccc;padding:10px;}

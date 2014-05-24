@@ -15,18 +15,18 @@
 	</div>
 	<div id="main">
 		<div id="left">
-			<table>
+			<ul>
 			<%
 			Page<Think> thinkPage = Think.ME.page(1, 10);
 			List<Think> thinkList = thinkPage.getList();
 			for(Think think:thinkList){
 			%>
-				<tr>
-					<td><%=think.get("think") %></td>
-					<td><%=think.get("time") %></td>
-				</tr>
+				<li>
+					<span class="think"><%=think.get("think") %></span>
+					<span class="time"><%=think.get("time") %></span>
+				</li>
 			<%} %>
-			</table>
+			</ul>
 		</div>
 		<div id="right">
 			<jsp:include page="/_piece/right.jsp" />
