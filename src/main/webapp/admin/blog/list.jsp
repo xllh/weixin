@@ -22,6 +22,7 @@
 				<td>标题</td>
 				<td>发表时间</td>
 				<td>浏览次数</td>
+				<td>操作</td>
 			</tr>
 			<%
 			int catalog = -1;
@@ -46,6 +47,10 @@
 					<td><%=blog.get("title") %></td>
 					<td><%=blog.get("ctime") %></td>
 					<td><%=blog.get("view") %></td>
+					<td>
+						<a href="/admin/action/blog_delete?id=<%=blog.get("id") %>">删除</a>
+						<a href="/admin/blog_update?id=<%=blog.get("id") %>">编辑</a>
+					</td>
 				</tr>
 			<%} %>
 			</table>

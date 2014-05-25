@@ -17,7 +17,15 @@
 		<div id="right">
 			<table>
 			<%
-			Page<Think> thinkPage = Think.ME.page(1, 10);
+			int pageNumber = 1;
+			int pageSize = 20;
+			if(request.getParameter("p") != null){
+				pageNumber = Integer.parseInt(request.getParameter("p"));
+			}
+			if(request.getParameter("s") != null){
+				pageSize = Integer.parseInt(request.getParameter("s"));
+			}
+			Page<Think> thinkPage = Think.ME.page(pageNumber, pageSize);
 			List<Think> thinkList = thinkPage.getList();
 			for(Think think:thinkList){
 			%>
@@ -25,6 +33,7 @@
 					<td><%=think.get("id") %></td>
 					<td><%=think.get("think") %></td>
 					<td><%=think.get("time") %></td>
+					<td><a href="/admin/action/think_delete?id=<%=think.get("id") %>">删除</a></td>
 				</tr>
 			<%} %>
 			</table>

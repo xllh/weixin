@@ -11,6 +11,8 @@ public class Blog extends Model<Blog>{
 	
 	public static Blog ME = new Blog();
 	
+	public static String CACHE_NAME = "#BLOG#";
+	
 	public static List<Blog> getAll(){
 		return ME.find("SELECT * FROM "+ ME.getTable());
 	}
@@ -46,7 +48,7 @@ public class Blog extends Model<Blog>{
 		if(pageSize<=0){
 			pageSize = 20;
 		}
-		Page<Blog> blogList = Blog.ME.paginateByCache("#BLOG#", "#PAGE#"+catalog+"#"+pageNumber+"#"+pageSize, pageNumber, pageSize, sql, exceptSql.toString(), paramList.toArray());
+		Page<Blog> blogList = Blog.ME.paginateByCache(CACHE_NAME, "#PAGE#"+catalog+"#"+pageNumber+"#"+pageSize, pageNumber, pageSize, sql, exceptSql.toString(), paramList.toArray());
 		return blogList;
 	}
 }

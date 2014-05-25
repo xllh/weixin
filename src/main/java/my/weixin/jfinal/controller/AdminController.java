@@ -24,6 +24,9 @@ public class AdminController extends Controller {
 	public void blog_add(){
 		render("/admin/blog/add.jsp");
 	}
+	public void blog_update(){
+		render("/admin/blog/update.jsp?id="+getPara("id"));
+	}
 	public void blog_list(){
 		render("/admin/blog/list.jsp");
 	}
