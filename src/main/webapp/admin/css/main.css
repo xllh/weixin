@@ -10,3 +10,26 @@
 
 #foot{position:fixed;bottom:0px;width:100%;}
 #foot #copyright{width:100%;height:30px;line-height:30px;background-color:#F4F4F4;text-align:center;}
+
+/*分页*/
+.page{
+	float:right;
+}
+.page ul li{
+	list-style:none;
+	float:left;
+}
+#left .page ul li{
+	border:0px;
+}
+.page ul li a{
+	diplay:block;
+	margin-right:10px;
+	padding:3px 5px;
+	background-color:#a4a4a4;
+	color:#fff;
+	text-decoration:none;
+}
+.page ul li.current a{
+	background-color:#666;
+}

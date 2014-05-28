@@ -18,9 +18,18 @@ public class Think extends Model<Think> {
 	 */
 	public Page<Think> page(int pageNumber, int pageSize){
 		String sql = "SELECT * FROM " + ME.Table;
-		String exceptSql = "";
+		String exceptSql = " ORDER BY id DESC";
 		Page<Think> thinkList = Think.ME.paginateByCache(CACHE_NAME, "#PAGE#"+pageNumber+"#"+pageSize, pageNumber, pageSize, sql, exceptSql);
 		return thinkList;
+	}
+	
+	/**
+	 * 统计当前总数
+	 * @return
+	 */
+	public int countAll(){
+		String sql = "SELECT * FROM " + ME.Table;
+		return Think.ME.findByCache(CACHE_NAME, "#COUNT#ALL#", sql).size();
 	}
 
 	public String Table = "xllh_think";

@@ -30,3 +30,25 @@
 #foot #friendlink ul li a{font-size:14px;}
 #foot #copyright{text-align:center;padding:20px 0;}
 
+/*分页*/
+.page{
+	float:right;
+}
+.page ul li{
+	list-style:none;
+	float:left;
+}
+#left .page ul li{
+	border:0px;
+}
+.page ul li a{
+	diplay:block;
+	margin-right:10px;
+	padding:3px 5px;
+	background-color:#a4a4a4;
+	color:#fff;
+	text-decoration:none;
+}
+.page ul li.current a{
+	background-color:#666;
+}
