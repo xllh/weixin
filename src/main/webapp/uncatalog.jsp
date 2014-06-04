@@ -40,7 +40,10 @@
 			<div class="page">
 				<%
 					int totalCount = Think.ME.countAll();
-					int totalPage = totalCount/pageSize + 1;
+					int totalPage = totalCount/pageSize; 
+					if(totalCount % pageSize > 0){
+						totalPage = totalPage + 1;
+					}
 				%>
 				<ul>
 					<%if(currentPage != 1){ %>

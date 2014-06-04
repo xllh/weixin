@@ -51,4 +51,15 @@ public class Blog extends Model<Blog>{
 		Page<Blog> blogList = Blog.ME.paginateByCache(CACHE_NAME, "#PAGE#"+catalog+"#"+pageNumber+"#"+pageSize, pageNumber, pageSize, sql, exceptSql.toString(), paramList.toArray());
 		return blogList;
 	}
+	
+	/**
+	 * 根据分类统计博客数量
+	 * @param catalog
+	 * @return
+	 */
+	public int count(int catalog){
+		String sql = "SELECT COUNT(*) FROM " + getTable() + " WHERE catalog = ? ";
+		List<Blog> blogList = Blog.ME.findByCache(CACHE_NAME, "#COUNT#"+catalog, sql, catalog);
+		return blogList.size();
+	}
 }

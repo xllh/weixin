@@ -15,35 +15,43 @@
 			<jsp:include page="/admin/_piece/left.jsp" />
 		</div>
 		<div id="right">
-			<table>
+			<%
+				int catalog = -1;
+				int pageNumber = 1;
+				int pageSize = 10;
+				if(request.getParameter("c") != null){
+					catalog = Integer.parseInt(request.getParameter("c"));
+				}
+				if(request.getParameter("p") != null){
+					pageNumber = Integer.parseInt(request.getParameter("p"));
+				}
+				if(request.getParameter("s") != null){
+					pageSize = Integer.parseInt(request.getParameter("s"));
+				}
+			%>
+			<ul class="catalog">
+				<li<%if(catalog==-1){ %> class="current" <%} %>><a href="/admin/blog_list">所有</a></li>
+				<li<%if(catalog==1){ %> class="current" <%} %>><a href="?c=1">Linux</a></li>
+				<li<%if(catalog==2){ %> class="current" <%} %>><a href="?c=2">Java</a></li>
+				<li<%if(catalog==3){ %> class="current" <%} %>><a href="?c=3">开发工具</a></li>
+				<li<%if(catalog==4){ %> class="current" <%} %>><a href="?c=4">读书笔记</a></li>
+			</ul>
+			<span class="clear"></span>
+			<table class="list">
 			<tr>
 				<td>编号</td>
-				<td>分类</td>
 				<td>标题</td>
 				<td>发表时间</td>
 				<td>浏览次数</td>
 				<td>操作</td>
 			</tr>
 			<%
-			int catalog = -1;
-			int pageNumber = -1;
-			int pageSize = -1;
-			if(request.getParameter("c") != null){
-				catalog = Integer.parseInt(request.getParameter("c"));
-			}
-			if(request.getParameter("p") != null){
-				pageNumber = Integer.parseInt(request.getParameter("p"));
-			}
-			if(request.getParameter("s") != null){
-				pageSize = Integer.parseInt(request.getParameter("s"));
-			}
 			Page<Blog> blogPage = Blog.ME.search(catalog, pageNumber, pageSize);
 			List<Blog> blogList = blogPage.getList();
 			for(Blog blog:blogList){
 			%>
 				<tr>
 					<td><%=blog.get("id") %></td>
-					<td><%=blog.get("catalog") %></td>
 					<td><%=blog.get("title") %></td>
 					<td><%=blog.get("ctime") %></td>
 					<td><%=blog.get("view") %></td>

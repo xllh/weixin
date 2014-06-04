@@ -18,15 +18,15 @@
 			<ul>
 			<%
 			int catalog = 1;
-			int pageNumber = -1;
-			int pageSize = -1;
+			int currentPage = 1;
+			int pageSize = 10;
 			if(request.getParameter("p") != null){
-				pageNumber = Integer.parseInt(request.getParameter("p"));
+				currentPage = Integer.parseInt(request.getParameter("p"));
 			}
 			if(request.getParameter("s") != null){
 				pageSize = Integer.parseInt(request.getParameter("s"));
 			}
-			Page<Blog> blogPage = Blog.ME.search(catalog, pageNumber, pageSize);
+			Page<Blog> blogPage = Blog.ME.search(catalog, currentPage, pageSize);
 			List<Blog> blogList = blogPage.getList();
 			for(Blog blog:blogList){
 			%>
@@ -44,6 +44,45 @@
 				</li>
 			<%} %>
 			</ul>
+			<div class="page">
+				<%
+					int totalCount = Blog.ME.count(catalog);
+					int totalPage = totalCount/pageSize; 
+					if(totalCount % pageSize > 0){
+						totalPage = totalPage + 1;
+					}
+				%>
+				<ul>
+					<%if(currentPage != 1){ %>
+					<li class="pre"><a href="?p=<%=currentPage-1 %>&s=<%=pageSize %>">上一页</a></li>
+					<%} %>
+					<%if(currentPage>6){ %>
+						<li><a href="?p=1&s=<%=pageSize %>">1</a></li>
+						<%for(int i = currentPage - 4;i < currentPage;i++){ %>
+						<li><a href="?p=<%=i %>&s=<%=pageSize %>"><%=i %></a></li>
+						<%} %>
+					<%}else{ %>
+						<%for(int i = 1;i < currentPage;i++){ %>
+						<li><a href="?p=<%=i %>&s=<%=pageSize %>"><%=i %></a></li>
+						<%} %>
+					<%} %>
+					<!-- 当前页 -->
+					<li class="current"><a href="?p=<%=currentPage %>&s=<%=pageSize %>"><%=currentPage %></a></li>
+					<%if(totalPage - currentPage < 4){ %>
+						<%for(int i = currentPage + 1;i <= totalPage;i++){ %>
+							<li><a href="?p=<%=i %>&s=<%=pageSize %>"><%=i %></a></li>
+						<%} %>
+					<%}else{ %>
+						<%for(int i = currentPage + 1;i < currentPage + 4;i++){ %>
+							<li><a href="?p=<%=i %>&s=<%=pageSize %>"><%=i %></a></li>
+						<%} %>
+						<li><a href="?p=<%=totalPage %>&s=<%=pageSize %>"><%=totalPage %></a></li>
+					<%} %>
+					<%if(totalPage - currentPage > 1){ %>
+						<li class="next"><a href="?p=<%=currentPage+1 %>&s=<%=pageSize %>">下一页</a></li>
+					<%} %>
+				</ul>
+			</div>
 		</div>
 		<div id="right">
 			<jsp:include page="/_piece/right.jsp" />
