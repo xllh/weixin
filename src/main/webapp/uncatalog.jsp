@@ -24,7 +24,7 @@
 		<div id="logo"><h1>星星博客<small>（星星之火，可以燎原）</small></h1></div>
 		<div id="nav">
 			<ul class="nav nav-tabs " role="tablist">
-				<li <%if(catalog.equalsIgnoreCase("index")){ %>class="active"<%} %>><a href="/">首页</a></li>
+				<li <%if(catalog.equalsIgnoreCase("index")){ %>class="active"<%} %>><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></li>
 				<li <%if(catalog.equalsIgnoreCase("linux")){ %>class="active"<%} %>><a href="/linux">Linux</a></li>
 				<li <%if(catalog.equalsIgnoreCase("java")){ %>class="active"<%} %>><a href="/java">Java</a></li>
 				<li <%if(catalog.equalsIgnoreCase("devtool")){ %>class="active"<%} %>><a href="/devtool">开发工具</a></li>
@@ -34,7 +34,7 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-	<div id="main" class="row">
+	<div id="main" class="row" style="margin-top:30px;">
 		<div id="left" class="col-md-9 col-xs-12">
 			<% 
 			int currentPage = 1;
@@ -46,18 +46,18 @@
 				pageSize = Integer.parseInt(request.getParameter("s"));
 			}
 			%>
-			<ul>
+			<ol>
 			<%
 			Page<Think> thinkPage = Think.ME.page(currentPage, pageSize);
 			List<Think> thinkList = thinkPage.getList();
 			for(Think think:thinkList){
 			%>
-				<li>
+				<li style="height:30px;line-height:30px;">
 					<span class="think"><%=think.get("think") %></span>
 					<span class="time"><%=think.get("time") %></span>
 				</li>
 			<%} %>
-			</ul>
+			</ol>
 			<div class="page">
 				<%
 					int totalCount = Think.ME.countAll();

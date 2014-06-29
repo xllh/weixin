@@ -4,6 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+	#friendlink{margin:30px 0;height:80px;}
+	#friendlink ul{display:block;height:30px;}
+	#friendlink ul li{list-style:none;float:left;margin-left:25px;}
+</style>
 </head>
 <body>
 	<div id="friendlink">
@@ -14,6 +19,10 @@
 			<li><a href="http://coolshell.cn/">酷壳</a></li>
 			<li><a href="https://github.com/">GitHub</a></li>
 			<li><a href="http://www.w3school.com.cn/">w3school</a></li>
+		</ul>
+		<div class="clear"></div>
+		<ul>
+			<li><a href="http://glyphicons.com/" target="_blank">Glyphicons</a></li>
 		</ul>
 		<div class="clear"></div>
 	</div>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
- 	pageEncoding="UTF-8" import="my.weixin.jfinal.bean.*,com.jfinal.plugin.activerecord.Page,java.util.*"%>
+ 	pageEncoding="UTF-8" import="my.weixin.jfinal.bean.*,com.jfinal.plugin.activerecord.Page,java.util.*,my.weixin.util.*"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -25,7 +25,7 @@
 		<div id="logo"><h1>星星博客<small>（星星之火，可以燎原）</small></h1></div>
 		<div id="nav">
 			<ul class="nav nav-tabs " role="tablist">
-				<li <%if(catalog.equalsIgnoreCase("index")){ %>class="active"<%} %>><a href="/">首页</a></li>
+				<li <%if(catalog.equalsIgnoreCase("index")){ %>class="active"<%} %>><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></li>
 				<li <%if(catalog.equalsIgnoreCase("linux")){ %>class="active"<%} %>><a href="/linux">Linux</a></li>
 				<li <%if(catalog.equalsIgnoreCase("java")){ %>class="active"<%} %>><a href="/java">Java</a></li>
 				<li <%if(catalog.equalsIgnoreCase("devtool")){ %>class="active"<%} %>><a href="/devtool">开发工具</a></li>
@@ -52,18 +52,20 @@
 					List<Blog> blogList = blogPage.getList();
 					for(Blog blog:blogList){
 					%>
-					<li>
+					<li style="border-bottom:1px solid #ccc;list-style:none;padding:10px 0 20px 0;">
 						<div class="blog_head">
 							<div class="blog_title"><h2><%=blog.get("title") %></h2></div>
 							<div class="blog_toolbar">
-								<button type="button" class="btn btn-default">浏览次数：<%=blog.get("view") %></button>
-								<button type="button" class="btn btn-default">发布时间：<%=blog.get("ctime") %></button>
+								<span class="view_count"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span class="badge"><%=blog.get("view") %></span></span>
+								<span class="pub_time"></span><span class="glyphicon glyphicon-time"></span>&nbsp;<span class="badge"><%=blog.get("ctime") %></span></span>
+								<span class="good"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">0</span></span>
+								<span class="bad"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;<span class="badge">0</span></span>
 							</div>
 						</div>
-						<div class="blog_body">
-							<%=blog.get("content") %>
+						<div class="blog_body" style="margin-bottom:20px;">
+							<%=StringUtil.cutContent(blog.get("content").toString(), 100) %>
 						</div>
-						<div class="toolbar"><span class="detail"><a href="detail/<%=blog.get("id")%>">详情</a><span class="share">分享</span></span></div>
+						<div class="toolbar"><span class="detail"><a href="detail/<%=blog.get("id")%>"><span class="glyphicon glyphicon-share-alt">&nbsp;详情</span></a><span class="share"><span class="glyphicon glyphicon-share"></span>&nbsp;分享</span></span></div>
 					</li>
 					<%} %>
 				</ul>

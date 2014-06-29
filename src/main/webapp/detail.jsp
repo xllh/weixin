@@ -31,7 +31,7 @@
 		<div id="logo"><h1>星星博客<small>（星星之火，可以燎原）</small></h1></div>
 		<div id="nav">
 			<ul class="nav nav-tabs " role="tablist">
-				<li <%if(catalogIdent.equalsIgnoreCase("index")){ %>class="active"<%} %>><a href="/">首页</a></li>
+				<li <%if(catalogIdent.equalsIgnoreCase("index")){ %>class="active"<%} %>><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></li>
 				<li <%if(catalogIdent.equalsIgnoreCase("linux")){ %>class="active"<%} %>><a href="/linux">Linux</a></li>
 				<li <%if(catalogIdent.equalsIgnoreCase("java")){ %>class="active"<%} %>><a href="/java">Java</a></li>
 				<li <%if(catalogIdent.equalsIgnoreCase("devtool")){ %>class="active"<%} %>><a href="/devtool">开发工具</a></li>
@@ -41,13 +41,15 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-	<div id="main" class="row">
+	<div id="main" class="row" style="margin-top:30px;">
 		<div id="left" class="col-md-9 col-xs-12">
 		<div class="blog_head">
 			<div class="blog_title"><%=blog.get("title") %></div>
 			<div class="blog_toolbar">
-				<span>浏览次数：<%=blog.get("view") %></span>
-				<span>发布时间：<%=blog.get("ctime") %></span>
+				<span class="view_count"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span class="badge"><%=blog.get("view") %></span></span>
+				<span class="pub_time"></span><span class="glyphicon glyphicon-time"></span>&nbsp;<span class="badge"><%=blog.get("ctime") %></span></span>
+				<span class="good"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">0</span></span>
+				<span class="bad"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;<span class="badge">0</span></span>
 			</div>
 		</div>
 		<div class="blog_body">
