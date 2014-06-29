@@ -1,6 +1,7 @@
 package my.weixin.jfinal.core;
 
 import my.weixin.jfinal.bean.Blog;
+import my.weixin.jfinal.bean.BlogCatalog;
 import my.weixin.jfinal.bean.Think;
 import my.weixin.jfinal.bean.User;
 import my.weixin.jfinal.route.AdminRoutes;
@@ -58,6 +59,7 @@ public class JFConfig extends JFinalConfig {
 		arpMysql.addMapping("xllh_blog", "id", Blog.class);
 		arpMysql.addMapping("xllh_user", "id", User.class);
 		arpMysql.addMapping("xllh_think", "id", Think.class);
+		arpMysql.addMapping("xllh_blog_catalog", BlogCatalog.class);
 	}
 
 	@Override

@@ -33,14 +33,19 @@ public class Blog extends Model<Blog>{
 		Table = table;
 	}
 	
-	public Page<Blog> search(int catalog, int pageNumber, int pageSize){
+	public Page<Blog> search(String catalogIdent, int pageNumber, int pageSize){
+		BlogCatalog blogCatalog = BlogCatalog.getByIdent(catalogIdent);
+		int catalogId = -1;
+		if(blogCatalog != null){
+			catalogId = blogCatalog.getInt("id");
+		}
 		String sql = "SELECT * ";
 		StringBuffer exceptSql = new StringBuffer();
 		exceptSql.append(" FROM " + getTable());
 		List<Object> paramList = new ArrayList<Object>();
-		if(catalog>0){
+		if(catalogId>0){
 			exceptSql.append(" WHERE catalog = ? ");
-			paramList.add(catalog);
+			paramList.add(catalogId);
 		}
 		if(pageNumber<0){
 			pageNumber = 1;
@@ -48,7 +53,7 @@ public class Blog extends Model<Blog>{
 		if(pageSize<=0){
 			pageSize = 20;
 		}
-		Page<Blog> blogList = Blog.ME.paginateByCache(CACHE_NAME, "#PAGE#"+catalog+"#"+pageNumber+"#"+pageSize, pageNumber, pageSize, sql, exceptSql.toString(), paramList.toArray());
+		Page<Blog> blogList = Blog.ME.paginateByCache(CACHE_NAME, "#PAGE#"+catalogId+"#"+pageNumber+"#"+pageSize, pageNumber, pageSize, sql, exceptSql.toString(), paramList.toArray());
 		return blogList;
 	}
 	
