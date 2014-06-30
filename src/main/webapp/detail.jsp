@@ -13,6 +13,7 @@
   <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<script src="/js/common.js"></script>
 <title>-博客</title>
 </head>
 <body class="container">
@@ -48,8 +49,8 @@
 			<div class="blog_toolbar">
 				<span class="view_count"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span class="badge"><%=blog.get("view") %></span></span>
 				<span class="pub_time"></span><span class="glyphicon glyphicon-time"></span>&nbsp;<span class="badge"><%=blog.get("ctime") %></span></span>
-				<span class="good"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;<span class="badge">0</span></span>
-				<span class="bad"><span class="glyphicon glyphicon-thumbs-down"></span>&nbsp;<span class="badge">0</span></span>
+				<span class="good"><span class="glyphicon glyphicon-thumbs-up" onclick="good(<%=blog.get("id")%>)"></span>&nbsp;<span class="badge" id="good_count_<%=blog.get("id")%>"><%=blog.get("good") %></span></span>
+				<span class="bad"><span class="glyphicon glyphicon-thumbs-down" onclick="bad(<%=blog.get("id")%>)"></span>&nbsp;<span class="badge" id="bad_count_<%=blog.get("id")%>"><%=blog.get("bad") %></span></span>
 			</div>
 		</div>
 		<div class="blog_body">

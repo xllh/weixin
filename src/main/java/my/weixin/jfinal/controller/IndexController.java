@@ -1,5 +1,7 @@
 package my.weixin.jfinal.controller;
 
+import my.weixin.jfinal.bean.Blog;
+
 import com.jfinal.core.Controller;
 
 public class IndexController extends Controller {
@@ -29,7 +31,11 @@ public class IndexController extends Controller {
 	}
 	public void detail(){
 		if(getParaToInt(0) != null){
-			render("/detail.jsp?id="+getParaToInt(0));
+			int blogId = getParaToInt(0);
+			//浏览数统计
+			Blog blog = Blog.getById(blogId);
+			blog.set("view", blog.getInt("view")+1).update();
+			render("/detail.jsp?id="+blogId);
 		}else{
 			redirect("/index.jsp");
 		}

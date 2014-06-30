@@ -8,6 +8,7 @@ import nl.captcha.Captcha;
 import nl.captcha.backgrounds.SquigglesBackgroundProducer;
 import nl.captcha.noise.CurvedLineNoiseProducer;
 import nl.captcha.servlet.CaptchaServletUtil;
+import my.weixin.jfinal.bean.Blog;
 import my.weixin.jfinal.bean.User;
 
 import com.jfinal.core.Controller;
@@ -51,5 +52,29 @@ public class VisitorActionController extends Controller{
 		CaptchaServletUtil.writeImage(getResponse(), captcha.getImage());
 		setSessionAttr(NAME, captcha);
 		renderNull();
+	}
+	//赞博客
+	public void blogGood(){
+		int blogId = getParaToInt("id", -1);
+		if(blogId > 0){
+			Blog blog = Blog.getById(blogId);
+			if(blog != null){
+				if(blog.set("good", blog.getInt("good")+1).update()){
+					renderJson("blog", blog.get("good"));
+				}
+			}
+		}
+	}
+	//踩博客
+	public void blogBad(){
+		int blogId = getParaToInt("id", -1);
+		if(blogId > 0){
+			Blog blog = Blog.getById(blogId);
+			if(blog != null){
+				if(blog.set("bad", blog.getInt("bad")+1).update()){
+					renderJson("blog", blog.get("bad"));
+				}
+			}
+		}
 	}
 }
