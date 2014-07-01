@@ -23,24 +23,7 @@
 		if(blog != null){
 	%>
 	<div id="head" class="row">
-		<%
-			int catalog = -1;
-			catalog = blog.getInt("catalog");
-			BlogCatalog blogCatalog = BlogCatalog.getById(catalog);
-			String catalogIdent = blogCatalog.get("ident");
-		%>
-		<div id="logo"><h1>星星博客<small>（星星之火，可以燎原）</small></h1></div>
-		<div id="nav">
-			<ul class="nav nav-tabs " role="tablist">
-				<li <%if(catalogIdent.equalsIgnoreCase("index")){ %>class="active"<%} %>><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></li>
-				<li <%if(catalogIdent.equalsIgnoreCase("linux")){ %>class="active"<%} %>><a href="/linux">Linux</a></li>
-				<li <%if(catalogIdent.equalsIgnoreCase("java")){ %>class="active"<%} %>><a href="/java">Java</a></li>
-				<li <%if(catalogIdent.equalsIgnoreCase("devtool")){ %>class="active"<%} %>><a href="/devtool">开发工具</a></li>
-				<li <%if(catalogIdent.equalsIgnoreCase("read")){ %>class="active"<%} %>><a href="/read">读书笔记</a></li>
-				<li <%if(catalogIdent.equalsIgnoreCase("uncatalog")){ %>class="active"<%} %>><a href="/uncatalog">随笔</a></li>
-			</ul>
-			<div class="clear"></div>
-		</div>
+		<%@include file="_piece/head.jsp" %>
 	</div>
 	<div id="main" class="row" style="margin-top:30px;">
 		<div id="left" class="col-md-9 col-xs-12">
@@ -61,12 +44,12 @@
 		<%}%>
 		</div>
 		<div id="right" class="col-md-3 col-xs-12">
-			<jsp:include page="/_piece/right.jsp" />
+			<%@include file="_piece/right.jsp" %>
 		</div>
 		<div class="clear"></div>
 	</div>
 	<div id="foot" class="row">
-		<jsp:include page="/_piece/foot.jsp" />
+		<%@include file="_piece/foot.jsp" %>
 	</div>
 </body>
 </html>

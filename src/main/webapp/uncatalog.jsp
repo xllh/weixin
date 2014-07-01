@@ -17,22 +17,7 @@
 </head>
 <body class="container">
 	<div id="head" class="row">
-		<%String catalog = "index"; %>
-		<%if(request.getAttribute("catalog")!=null){
-			catalog = request.getAttribute("catalog").toString();
-		} %>
-		<div id="logo"><h1>星星博客<small>（星星之火，可以燎原）</small></h1></div>
-		<div id="nav">
-			<ul class="nav nav-tabs " role="tablist">
-				<li <%if(catalog.equalsIgnoreCase("index")){ %>class="active"<%} %>><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></li>
-				<li <%if(catalog.equalsIgnoreCase("linux")){ %>class="active"<%} %>><a href="/linux">Linux</a></li>
-				<li <%if(catalog.equalsIgnoreCase("java")){ %>class="active"<%} %>><a href="/java">Java</a></li>
-				<li <%if(catalog.equalsIgnoreCase("devtool")){ %>class="active"<%} %>><a href="/devtool">开发工具</a></li>
-				<li <%if(catalog.equalsIgnoreCase("read")){ %>class="active"<%} %>><a href="/read">读书笔记</a></li>
-				<li <%if(catalog.equalsIgnoreCase("uncatalog")){ %>class="active"<%} %>><a href="/uncatalog">随笔</a></li>
-			</ul>
-			<div class="clear"></div>
-		</div>
+		<%@include file="_piece/head.jsp" %>
 	</div>
 	<div id="main" class="row" style="margin-top:30px;">
 		<div id="left" class="col-md-9 col-xs-12">
@@ -99,12 +84,12 @@
 			</div>
 		</div>
 		<div id="right" class="col-md-3 col-xs-12">
-			<jsp:include page="/_piece/right.jsp" />
+			<%@include file="_piece/right.jsp" %>
 		</div>
 		<div class="clear"></div>
 	</div>
 	<div id="foot" class="row">
-		<jsp:include page="/_piece/foot.jsp" />
+		<%@include file="_piece/foot.jsp" %>
 	</div>
 </body>
 </html>
