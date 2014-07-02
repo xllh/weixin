@@ -31,10 +31,10 @@
 			%>
 			<ul class="catalog">
 				<li<%if(catalog==-1){ %> class="current" <%} %>><a href="/admin/blog_list">所有</a></li>
-				<li<%if(catalog==1){ %> class="current" <%} %>><a href="?c=1">Linux</a></li>
-				<li<%if(catalog==2){ %> class="current" <%} %>><a href="?c=2">Java</a></li>
-				<li<%if(catalog==3){ %> class="current" <%} %>><a href="?c=3">开发工具</a></li>
-				<li<%if(catalog==4){ %> class="current" <%} %>><a href="?c=4">读书笔记</a></li>
+				<%List<BlogCatalog> blogCatalogList = BlogCatalog.getBlogCatalogList();
+				for(BlogCatalog blogCatalog : blogCatalogList){ %>
+				<li<%if(catalog==blogCatalog.getInt("id")){ %> class="current" <%} %>><a href="?c=<%=blogCatalog.getInt("id") %>"><%=blogCatalog.get("name") %></a></li>
+				<%} %>
 			</ul>
 			<span class="clear"></span>
 			<table class="list">
@@ -46,7 +46,12 @@
 				<td>操作</td>
 			</tr>
 			<%
-			Page<Blog> blogPage = Blog.ME.search(catalog, pageNumber, pageSize);
+			BlogCatalog blogCatalog = BlogCatalog.getById(catalog);
+			String catalogIdent = "";
+			if(blogCatalog!=null){
+				catalogIdent = blogCatalog.get("ident").toString();
+			}
+			Page<Blog> blogPage = Blog.ME.search(catalogIdent, pageNumber, pageSize);
 			List<Blog> blogList = blogPage.getList();
 			for(Blog blog:blogList){
 			%>

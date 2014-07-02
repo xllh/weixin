@@ -1,5 +1,7 @@
 package my.weixin.jfinal.bean;
 
+import java.util.List;
+
 import com.jfinal.plugin.activerecord.Model;
 
 public class BlogCatalog extends Model<BlogCatalog> {
@@ -26,6 +28,14 @@ public class BlogCatalog extends Model<BlogCatalog> {
 	 */
 	public static BlogCatalog getById(int id){
 		return ME.findFirst("SELECT * FROM " + ME.getTable() + " WHERE id = ?", id);
+	}
+	
+	/**
+	 * 获取所有软件分类
+	 * @return
+	 */
+	public static List<BlogCatalog> getBlogCatalogList(){
+		return ME.find("SELECT * FROM " + ME.getTable() + " ");
 	}
 	
 	public String getTable() {
